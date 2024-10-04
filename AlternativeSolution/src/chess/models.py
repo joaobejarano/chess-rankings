@@ -1,26 +1,26 @@
 from pydantic import BaseModel
 from typing import List, Optional
 
-# Modelo para representar um jogador de xadrez
+# Model to represent a chess player
 class Player(BaseModel):
     username: str
     rating: int
     rank: Optional[int] = None
 
-# Modelo para representar o histórico de rating de um jogador
+# Model to represent a player's rating history
 class RatingHistory(BaseModel):
     date: str
     rating: int
 
-# Modelo para representar a resposta com a lista dos top jogadores
+# Model to represent the response with the list of top players
 class TopPlayersResponse(BaseModel):
     top_50_players: List[Player]
 
-# Modelo para representar a resposta com o histórico de rating do top 1 jogador
+# Model to represent the response with the rating history of the top 1 player
 class TopPlayerRatingHistoryResponse(BaseModel):
     username: str
     rating_history: List[RatingHistory]
 
-# Modelo para representar a resposta de geração de CSV
+# Template to represent CSV generation response
 class CSVGenerationResponse(BaseModel):
     message: str

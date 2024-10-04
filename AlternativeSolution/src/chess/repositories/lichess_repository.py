@@ -7,7 +7,7 @@ class LichessRepository:
     @staticmethod
     def get_top_classical_players(count=50):
         """
-        Retorna uma lista com os usernames dos top `count` jogadores de xadrez clássico.
+        Returns a list of usernames of the top `count` classical chess players.
         """
         url = f"{LichessRepository.BASE_URL}/player/top/{count}/classical"
         response = requests.get(url)
@@ -16,21 +16,21 @@ class LichessRepository:
             allTop50Users = players['users']
             return [player['username'] for player in allTop50Users]
         else:
-            print(f"Erro ao buscar jogadores: {response.status_code}")
+            print(f"Error searching for players: {response.status_code}")
             return []
 
     @staticmethod
     def get_player_rating_history(username):
         """
-        Retorna o histórico de rating de um jogador específico.
+        Returns the rating history of a specific player.
         """
         url = f"{LichessRepository.BASE_URL}/user/{username}/rating-history"
         response = requests.get(url)
         if response.status_code == 200:
             rating_history = response.json()
-            # Encontrar a seção 'classical' no histórico de rating
+            # Finding the 'classical' section in the rating history
             for history in rating_history:
                 if history['name'].lower() == 'classical':
                     return history['points']
-        print(f"Erro ao buscar histórico de rating para {username}: {response.status_code}")
+        print(f"Error fetching rating history for {username}: {response.status_code}")
         return []

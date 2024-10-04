@@ -2,22 +2,22 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     """
-    Configurações globais do projeto, usando variáveis de ambiente.
+    Global project settings, using environment variables.
     """
-    # URL base da API do Lichess
+    # Lichess API Base URL
     LICHESS_API_BASE_URL: str = "https://lichess.org/api"
 
-    # Configurações do aplicativo FastAPI
+    # FastAPI Application Settings
     APP_NAME: str = "Chess Data Analysis API"
     APP_VERSION: str = "1.0.0"
-    APP_DESCRIPTION: str = "API para análise de dados de xadrez usando a Lichess API."
+    APP_DESCRIPTION: str = "API for analyzing chess data using the Lichess API."
 
-    # Configurações de ambiente
+    # Environment settings
     ENVIRONMENT: str = "development"
     DEBUG_MODE: bool = True
 
     class Config:
-        env_file = ".env"  # Define que as variáveis de ambiente serão carregadas a partir de um arquivo .env
+        env_file = ".env"
 
-# Instância global das configurações
+# Global instance of settings
 settings = Settings()

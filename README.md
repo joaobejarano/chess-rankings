@@ -2,14 +2,15 @@
 
 This project collects and analyzes data from classical chess players using the Lichess API. The project includes methods to fetch the rating history of the last 30 days of the top players and generate CSV reports.
 
-## Prerequisites
+## Main Solution
+### Prerequisites
 
 Before running the project, make sure you have installed:
 
 - Python 3.7 or higher
 - pip to manage Python packages
 
-## Step by Step Configuration
+### Step by Step Configuration
 
 1. Clone the Repository:
 
@@ -64,3 +65,6 @@ Before running the project, make sure you have installed:
     ```
 
     This will fetch the data of the top 50 classical chess players and save the rating history in a CSV file inside the output/ folder.
+
+
+## Alternative Solution

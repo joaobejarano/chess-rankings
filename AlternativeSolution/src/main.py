@@ -3,7 +3,7 @@ import uvicorn
 import sys
 import os
 
-# Adiciona o diretório 'src' ao sys.path se não estiver presente
+# Adds the 'src' directory to sys.path if not present
 src_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if src_path not in sys.path:
     sys.path.append(src_path)
@@ -17,10 +17,8 @@ app = FastAPI(
     version=settings.APP_VERSION
 )
 
-# Incluir as rotas da aplicação
 app.include_router(router)
 
-# Rota inicial de teste
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the Chess Data Analysis API"}
